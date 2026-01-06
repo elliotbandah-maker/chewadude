@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Glance at the Food Security Situation in Zambia | Eliot Banda</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f7f7f7; color: #222; }
+    header { background: #ffffff; padding: 30px; border-bottom: 1px solid #ddd; }
+    section { padding: 30px; max-width: 1200px; margin: auto; }
+    h1, h2 { margin-bottom: 10px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+    canvas { background: #ffffff; padding: 20px; border-radius: 6px; }
+    footer { padding: 20px; text-align: center; font-size: 0.9em; color: #666; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>A Glance at the Food Security Situation in Zambia</h1>
+  <p>By Eliot Banda</p>
+  <p>This public dashboard presents national and district-level patterns on food security, livelihoods, and agriculture using realistic Zambia-focused data.</p>
+</header>
+
+<section>
+  <h2>National Food Security Trends</h2>
+  <div class="grid">
+    <canvas id="fcsChart"></canvas>
+    <canvas id="rcsiChart"></canvas>
+  </div>
+</section>
+
+<section>
+  <h2>District Comparison: Livelihood Sources</h2>
+  <canvas id="livelihoodChart"></canvas>
+</section>
+
+<section>
+  <h2>Agriculture Patterns</h2>
+  <canvas id="agricultureChart"></canvas>
+</section>
+
+<footer>
+  <p>Sample data for demonstration purposes only. Structure designed for future replacement with real datasets.</p>
+</footer>
+
+<script>
+  const fcsChart = new Chart(document.getElementById('fcsChart'), {
+    type: 'line',
+    data: {
+      labels: ['2019', '2020', '2021', '2022', '2023'],
+      datasets: [{ label: 'Acceptable FCS (%)', data: [52, 48, 46, 50, 55] }]
+    }
+  });
+
+  const rcsiChart = new Chart(document.getElementById('rcsiChart'), {
+    type: 'line',
+    data: {
+      labels: ['2019', '2020', '2021', '2022', '2023'],
+      datasets: [{ label: 'Average rCSI', data: [12, 15, 17, 14, 11] }]
+    }
+  });
+
+  const livelihoodChart = new Chart(document.getElementById('livelihoodChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Eastern', 'Southern', 'Western', 'Central'],
+      datasets: [{ label: 'Agriculture-dependent Households (%)', data: [68, 72, 64, 59] }]
+    }
+  });
+
+  const agricultureChart = new Chart(document.getElementById('agricultureChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Maize', 'Groundnuts', 'Sorghum'],
+      datasets: [{ label: 'Average Yield (MT/ha)', data: [2.1, 1.3, 1.1] }]
+    }
+  });
+</script>
+
+</body>
+</html>
